@@ -45,7 +45,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#" alt="sorry">The AmTraker</a>
+          <a class="brand" href="#">Track</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li><a href="#">Home</a></li>
@@ -54,16 +54,22 @@
               <li><a href="#contact">Analysis</a></li>
               <li><a href="#">Archive</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
+          </div>
         </div>
     </div>
   </script>
   
+  <script language="text/javascript" id="template-project-header-view">
+    <%= title %>
+  </script>
+
     <script>
       $(function(){
-        // Start the TodoMVC app (defined in js/TodoMVC.js)
-        new Router();
+        // Start the app 
+        //new Router(); // not needed, why?
         Track.start();
+
+
       });
     </script>
 </body>
