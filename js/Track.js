@@ -2,6 +2,7 @@ var Track = new Backbone.Marionette.Application();
 
 Track.addRegions({
 	header: '#header',
+  headerProjectList: '#header-project-list',
 	main: '#container'
 });
 
@@ -11,7 +12,7 @@ Track.addInitializer(function(){
   var ProjectCollection = new Projects.ProjectCollection();
   ProjectCollection.add(bpo);
   ProjectCollection.add(pcard);
-  Track.header.show(new Layout.Header({ collection: ProjectCollection }));
+  Track.headerProjectList.show(new Layout.Header({ collection: ProjectCollection }));
   /*Track.main.show(new TodoListCompositeView({
     collection : todoList
   }));

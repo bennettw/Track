@@ -18,7 +18,28 @@
 </head>
 <body>
 
-  <div id="header"></div>
+  <div id="header">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Track</a>
+          <div class="nav-collapse collapse" id="header-project-list">
+            <!--<ul class="nav">
+              <li><a href="#">Home</a></li>
+              <li class="active"><a href="#about">BPO Enhancements</a></li>
+              <li><a href="#contact">PCard</a></li>
+              <li><a href="#contact">Analysis</a></li>
+              <li><a href="#">Archive</a></li>
+            </ul>-->
+          </div>
+        </div>
+    </div>
+  </div>
 
   <div id="container" class="container"></div>
 
@@ -37,30 +58,11 @@
     <script src="js/Track.Router.js"></script>
   
   <script language="text/javascript" id="template-header">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="#">Track</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li><a href="#">Home</a></li>
-              <li class="active"><a href="#about">BPO Enhancements</a></li>
-              <li><a href="#contact">PCard</a></li>
-              <li><a href="#contact">Analysis</a></li>
-              <li><a href="#">Archive</a></li>
-            </ul>
-          </div>
-        </div>
-    </div>
+    
   </script>
   
   <script language="text/javascript" id="template-project-header-view">
-    <%= title %>
+    <a href="#"><%= title %></a>
   </script>
 
     <script>
