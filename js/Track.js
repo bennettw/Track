@@ -7,12 +7,27 @@ Track.addRegions({
 });
 
 Track.addInitializer(function(){
+
+  // Setup initial data
+  // TODO: This needs to be replaced with a backend and should it even be 
+  // handled in this methOD?
   var bpo = new Projects.Project({ title: 'BPO Enhancements' });
+  bpo.addTodo('Add a new field to the print out');
+  bpo.addTodo('Prevent this user from doing that');
+  bpo.addTodo('Copy these fields to a new object');
   var pcard = new Projects.Project({ title: 'PCard' });
+  var analysis = new Projects.Project({ title: 'Analysis' });
   var ProjectCollection = new Projects.ProjectCollection();
   ProjectCollection.add(bpo);
   ProjectCollection.add(pcard);
+  ProjectCollection.add(analysis);
+  
   Track.headerProjectList.show(new Layout.Header({ collection: ProjectCollection }));
+  Track.main.show(new Layout.ProjectCompositeView({
+    model: bpo,
+    collection: bpo.getTodoList()
+  }));
+  
   /*Track.main.show(new TodoListCompositeView({
     collection : todoList
   }));
@@ -23,6 +38,7 @@ Track.addInitializer(function(){
 
 Track.on('initialize:after', function() {
 	Backbone.history.start();
+
 
 	// how do i tell regions to display stuff?  need a router?
   //console.log('num projects: ' + ProjectCollection.size());

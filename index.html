@@ -52,24 +52,34 @@
     <script src="js/lib/backbone.marionette.js"></script>
     <!-- application -->
     <script src="js/Track.js"></script>
-    <script src="js/Track.Project.js"></script> 
     <script src="js/Track.Todos.js"></script>
+    <script src="js/Track.Project.js"></script> 
     <script src="js/Track.Layout.js"></script> 
     <script src="js/Track.Router.js"></script>
   
-  <script language="text/javascript" id="template-header">
-    
+  <script language="text/javascript" id="template-todo-list">
+    <h2><%= title %></h2>
+    <ul id="project-todos"></ul>
   </script>
   
   <script language="text/javascript" id="template-project-header-view">
     <a href="#"><%= title %></a>
   </script>
 
+  <script language="text/javascript" id="template-todo-list-item">
+    <a href="#<%= project_title %>/<%= slug %>"><%= title %></a>
+  </script>
+
+
+
     <script>
       $(function(){
         // Start the app 
-        //new Router(); // not needed, why?
+        var router = new Router(); // not needed, why?
         Track.start();
+
+        // For now, we're going to just mock out the Project view page
+        router.navigate('bpo-enhancements');
 
 
       });
