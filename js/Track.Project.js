@@ -38,4 +38,11 @@ var Projects = Track.module('Projects', function(Projects, Track, Backbone, Mari
 	Projects.ProjectCollection = Backbone.Collection.extend({
 		model: Projects.Project
 	});
+
+/* how do we get the controller to know when to change the view in the 'main' region?
+	Projects.ProjectHeaderController = Marionette.Controller.extend({
+		initialize: function() {
+			this.bindTo('project:click')
+		}
+	})*/
 });
