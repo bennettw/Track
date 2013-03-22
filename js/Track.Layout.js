@@ -37,6 +37,7 @@ var Layout = Track.module('Layout', function(Layout, Track, Backbone, Marionette
 
 	Layout.ProjectCompositeView = Backbone.Marionette.CompositeView.extend({
 		template: '#template-todo-list',
-		itemView: Layout.TodoListItemView 
+		itemView: Layout.TodoListItemView,
+		itemViewContainer: '#project-todos'
 	})
 });

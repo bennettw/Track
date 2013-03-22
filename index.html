@@ -29,13 +29,6 @@
           </button>
           <a class="brand" href="#">Track</a>
           <div class="nav-collapse collapse" id="header-project-list">
-            <!--<ul class="nav">
-              <li><a href="#">Home</a></li>
-              <li class="active"><a href="#about">BPO Enhancements</a></li>
-              <li><a href="#contact">PCard</a></li>
-              <li><a href="#contact">Analysis</a></li>
-              <li><a href="#">Archive</a></li>
-            </ul>-->
           </div>
         </div>
     </div>
@@ -63,7 +56,7 @@
   </script>
   
   <script language="text/javascript" id="template-project-header-view">
-    <a href="#"><%= title %></a>
+    <a href="#<%= slug %>"><%= title %></a>
   </script>
 
   <script language="text/javascript" id="template-todo-list-item">
@@ -79,7 +72,7 @@
         Track.start();
 
         // For now, we're going to just mock out the Project view page
-        router.navigate('bpo-enhancements');
+        router.navigate('bpo-enhancements', true);
 
 
       });

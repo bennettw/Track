@@ -16,7 +16,10 @@ Track.addInitializer(function(){
   bpo.addTodo('Prevent this user from doing that');
   bpo.addTodo('Copy these fields to a new object');
   var pcard = new Projects.Project({ title: 'PCard' });
+  pcard.addTodo('Fix the charges');
+  pcard.addTodo('Do some things to the accountings');
   var analysis = new Projects.Project({ title: 'Analysis' });
+  analysis.addTodo('Add some reports yo');
   var ProjectCollection = new Projects.ProjectCollection();
   ProjectCollection.add(bpo);
   ProjectCollection.add(pcard);

@@ -5,11 +5,12 @@ var Projects = Track.module('Projects', function(Projects, Track, Backbone, Mari
 			title: '',
 			completed: false,
 			archived: false,
-			todoList: new Track.Todos.TodoCollection()
+			//todoList: new Todos.TodoCollection() // this is a static shared collection, why?
 		},
 
 		initialize: function() {
 			this.setSlug(this.get('title'));
+			this.set('todoList', new Todos.TodoCollection());  // prevents it from being a global shared collection
 		},
 
 		setSlug: function(title) {
@@ -29,8 +30,8 @@ var Projects = Track.module('Projects', function(Projects, Track, Backbone, Mari
 		},
 
 		addTodo: function(todo) {
-			this.getTodoList().add(new Track.Todos.Todo({ title: todo, project_title: this.get('slug') }));
-			console.log('adding todo: ' + todo);
+			this.getTodoList().add(new Todos.Todo({ title: todo, project_title: this.get('slug') }));
+			console.log(this.get('title') + ': adding todo: ' + todo);
 		}
 	});
 
