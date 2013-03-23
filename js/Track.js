@@ -24,12 +24,19 @@ Track.addInitializer(function(){
   ProjectCollection.add(bpo);
   ProjectCollection.add(pcard);
   ProjectCollection.add(analysis);
-  
-  Track.headerProjectList.show(new Layout.Header({ collection: ProjectCollection }));
-  Track.main.show(new Layout.ProjectCompositeView({
+
+  // Set up the controllers
+  var mainController = new Projects.MainController({ region: Track.main });
+  mainController.show(new Layout.ProjectCompositeView({
     model: bpo,
     collection: bpo.getTodoList()
   }));
+  
+  Track.headerProjectList.show(new Layout.Header({ collection: ProjectCollection }));
+/*  Track.main.show(new Layout.ProjectCompositeView({
+    model: bpo,
+    collection: bpo.getTodoList()
+  }));*/
   
   /*Track.main.show(new TodoListCompositeView({
     collection : todoList
