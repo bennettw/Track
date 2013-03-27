@@ -39,14 +39,26 @@ var Projects = Track.module('Projects', function(Projects, Track, Backbone, Mari
 		model: Projects.Project
 	});
 
-// how do we get the controller to know when to change the view in the 'main' region?
-	Projects.MainController = Marionette.Controller.extend({
+// how do we get the controller to know when to change the view in the 'main' region? -- need to add listen events
+// how do i bind to events in the project list view ??
+	Projects.ProjectController = Marionette.Controller.extend({
 		initialize: function(options) {
 			this.region = options.region;
+			this.header = options.header;
+			this.listenTo(this.header, "click:project", this.changeProject, this);
 		},
 
-		show: function(layout) {
+		show: function(project) {
+			var layout = new Layout.ProjectCompositeView({
+			    model: project,
+			    collection: project.getTodoList()
+			 });
+
 			this.region.show(layout);
+		},
+
+		changeProject: function() {
+			console.log('project controller clicked');
 		}
 	})
 });

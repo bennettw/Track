@@ -2,7 +2,16 @@ var Layout = Track.module('Layout', function(Layout, Track, Backbone, Marionette
 
 	Layout.ProjectHeaderView = Backbone.Marionette.ItemView.extend({
 		tagName: 'li',
-		template: '#template-project-header-view'
+		template: '#template-project-header-view',
+
+		events: {
+			'click a': 'headerLinkClicked'
+		},
+
+		headerLinkClicked: function() {
+			console.log(this.model.get('title'));
+			this.trigger('show:project', this.model);
+		}
 	});
 
 	Layout.Header = Backbone.Marionette.CollectionView.extend({

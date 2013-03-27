@@ -26,13 +26,16 @@ Track.addInitializer(function(){
   ProjectCollection.add(analysis);
 
   // Set up the controllers
-  var mainController = new Projects.MainController({ region: Track.main });
-  mainController.show(new Layout.ProjectCompositeView({
-    model: bpo,
-    collection: bpo.getTodoList()
-  }));
+  var header = new Layout.Header({ collection: ProjectCollection });  
+  var mainController = new Projects.ProjectController({ region: Track.main, header: header });
+  mainController.show(bpo);
   
-  Track.headerProjectList.show(new Layout.Header({ collection: ProjectCollection }));
+  Track.headerProjectList.show(header);
+
+  header.on('itemview:show:project', function(itemView, model) {
+    console.log('clicked on ' + model.get('title'));
+    mainController.show(model);
+  });
 /*  Track.main.show(new Layout.ProjectCompositeView({
     model: bpo,
     collection: bpo.getTodoList()
