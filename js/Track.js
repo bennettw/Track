@@ -32,20 +32,12 @@ Track.addInitializer(function(){
   
   Track.headerProjectList.show(header);
 
+  // Needs to be moved somewhere
   header.on('itemview:show:project', function(itemView, model) {
     console.log('clicked on ' + model.get('title'));
     mainController.show(model);
   });
-/*  Track.main.show(new Layout.ProjectCompositeView({
-    model: bpo,
-    collection: bpo.getTodoList()
-  }));*/
   
-  /*Track.main.show(new TodoListCompositeView({
-    collection : todoList
-  }));
-  app.footer.show(new Footer());*/
-
   //todoList.fetch();
 });
 
